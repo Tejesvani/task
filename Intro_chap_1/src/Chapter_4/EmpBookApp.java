@@ -24,13 +24,15 @@ public class EmpBookApp
 		dob=sc.next();
 		System.out.print("Marital Status: ");
 		ms=sc.next();
-		if(ms=="Yes" || ms=="y")
+		if(ms.equals("Y") || ms.equals("y"))
 		{
 			System.out.print("Date of Marriage: ");
 			dom=sc.next();
 		}		
-		else
+		else 
+		{
 			dom="Nil";
+		}
 	}
 	
 	void displayData()
