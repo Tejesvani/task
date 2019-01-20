@@ -3,15 +3,14 @@ import java.util.Scanner;
 
 public class EmpBookApp 
 {
-
-	int id;
+	String id;
 	String name,dept,desg,doj,dob,ms,dom=new String();
 	Scanner sc=new Scanner(System.in);
 	void enterData()
 	{
 		//Scanner sc=new Scanner(System.in);
 		System.out.print("ID: ");
-		id=sc.nextInt();
+		id=sc.next();
 		System.out.print("Name: ");
 		name=sc.next();
 		System.out.print("Dept: ");
@@ -49,20 +48,31 @@ public class EmpBookApp
 	
 	public static void main(String[] args) 
 	{
-		int n,i,id;
+		int n,i,p=0;
+		String id;
 		EmpBookApp eb[]=new EmpBookApp[10];
 		for(i=0;i<10;i++)
 			eb[i]=new EmpBookApp();
 		Scanner sc=new Scanner(System.in);
 		System.out.print("Enter n: ");
 		n=sc.nextInt();
-		for(i=1;i<=n;i++)
+		for(i=0;i<n;i++)
+		{
+			System.out.println("Emp - "+(i+1));
 			eb[i].enterData();
+		}
 		System.out.print("Enter id: ");
-		id=sc.nextInt();
-		if(id<=n)
-			eb[id].displayData();
-		else
+		id=sc.next();
+		for(i=0;i<n;i++)
+		{
+			if(id.equals(eb[i].id))
+			{
+				eb[i].displayData();
+				p=1;
+				break;
+			}
+		}
+		if (p==0)
 			System.out.println("ID not found");
 	}
 }
